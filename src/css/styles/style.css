@@ -15145,7 +15145,7 @@ a.btn-slider:hover {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 
 .testi-slider .flex-control-paging li a {
@@ -16713,4 +16713,36 @@ img {
 
 .no-cursor {
   cursor: not-allowed;
+}
+
+
+/* KEEN  */
+
+
+.navigation-wrapper {
+  position: relative;
+}
+
+.arrow {
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  fill: #121212;
+  cursor: pointer;
+  padding: 14px;
+  border-radius: 100%;
+  border: 1px solid rgb(0 0 0 / 30%);
+  background-color: rgb(245, 245, 245);
+}
+
+.arrow--left {
+  left: 5px;
+}
+
+.arrow--right {
+  left: auto;
+  right: 5px;
 }
