@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 
 import axios from "axios";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
+import Skeleton from "../UI/Skeleton";
 
 
 
@@ -23,7 +22,6 @@ const HotCollections = () => {
     let response = await axios.get(api);
     let responseData = await response.data;
     setresponseList(responseData);
-    console.log(responseData);
   }
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,6 +38,17 @@ const HotCollections = () => {
     },
     created() {
       setLoaded(true);
+    },
+    breakpoints: {
+      "(max-width: 1200px)": {
+        slides: { perView: 3 },
+      },
+      "(max-width: 840px)": {
+        slides: { perView: 2 },
+      },
+      "(max-width: 440px)": {
+        slides: { perView: 1 },
+      },
     },
   });
 
@@ -90,7 +99,7 @@ const HotCollections = () => {
                       </div>
                     </div>
                   ))
-                : new Array(4).fill(0).map((_, index) => (
+                  : new Array(6).fill(0).map((_, index) => (
                     <div
                       className="col-lg-3 col-md-6 col-sm-6 col-xs-12 keen-slider__slide"
                       key={index}
@@ -98,28 +107,36 @@ const HotCollections = () => {
                       <div className="nft_coll">
                         <div className="nft_wrap">
                           <Link to="/">
-                            <img
-                              src={nftImage}
-                              className="lazy img-fluid"
-                              alt=""
-                            />
+                          <Skeleton width={"100%"} height={"auto"} />
                           </Link>
                         </div>
                         <div className="nft_coll_pp">
                           <Link to="/">
-                            <img
-                              className="lazy pp-coll"
-                              src={AuthorImage}
-                              alt=""
+                          <Skeleton
+                              width={"3rem"}
+                              height={"3rem"}
+                              borderRadius={"9999px"}
                             />
                           </Link>
                           <i className="fa fa-check"></i>
                         </div>
                         <div className="nft_coll_info">
                           <Link to="/">
-                            <h4>Art Piece</h4>
+                          <h4>
+                              <Skeleton
+                                width={"6rem"}
+                                height={"1rem"}
+                                borderRadius={"12px"}
+                              />
+                            </h4>
                           </Link>
-                          <span>"ERC-112"</span>
+                          <span>
+                            <Skeleton
+                              width={"3rem"}
+                              height={"1rem"}
+                              borderRadius={"12px"}
+                            />
+                          </span>
                         </div>
                       </div>
                     </div>
