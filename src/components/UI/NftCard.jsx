@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Skeleton from "./Skeleton";
 import TimerLogic from "./TimerLogic";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function NftCard({
   title,
@@ -15,6 +17,25 @@ function NftCard({
   isSlide,
   style,
 }) {
+  const [likeState, setlikeState] = useState(false);
+  const [likeColor, setlikeColor] = useState("");
+  const [likeCount, setlikeCount] = useState(0);
+
+  useEffect(() => {
+    setlikeCount(likes);
+  }, [likes]);
+
+  function handleLike() {
+    if (!likeState) {
+      setlikeCount(likeCount + 1);
+      setlikeState(true);
+      setlikeColor("#ec7498");
+    } else if (likeState) {
+      setlikeCount(likeCount - 1);
+      setlikeState(false);
+      setlikeColor("");
+    }
+  }
   return (
     <div
       className={`col-lg-3 col-md-6 col-sm-6 col-xs-12 ${
@@ -108,11 +129,16 @@ function NftCard({
               <Skeleton width={"4rem"} height={"1rem"} borderRadius={"12px"} />
             )}
           </div>
-          <div className="nft__item_like">
-            <i className="fa fa-heart"></i>
+          <div
+            className="nft__item_like"
+            onClick={() => {
+              handleLike();
+            }}
+          >
+            <i className="fa fa-heart" style={{ color: `${likeColor}` }}></i>
             <span>
               {isLoaded ? (
-                `${likes}`
+                `${likeCount}`
               ) : (
                 <Skeleton
                   width={"2rem"}
