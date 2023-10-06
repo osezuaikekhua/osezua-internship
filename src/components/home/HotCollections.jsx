@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-
 import Skeleton from "../UI/Skeleton";
 
 
 
 const HotCollections = () => {
   const [responseList, setresponseList] = useState(false);
+  const hotcollectionsApiLink = process.env.REACT_APP_FES_API;
 
   useEffect(() => {
-    fetchApiData(
-      "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
-    );
+    fetchApiData(`${hotcollectionsApiLink}/hotCollections`);
   }, []);
 
   async function fetchApiData(api) {
