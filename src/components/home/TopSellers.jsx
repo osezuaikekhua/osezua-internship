@@ -6,11 +6,10 @@ import Skeleton from "../UI/Skeleton";
 
 const TopSellers = () => {
   const [responseList, setresponseList] = useState([]);
+  const topsellersApiLink = process.env.REACT_APP_FES_API;
 
   useEffect(() => {
-    fetchApiData(
-      "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
-    );
+    fetchApiData(`${topsellersApiLink}/topSellers`);
   }, []);
 
   async function fetchApiData(api) {

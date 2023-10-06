@@ -6,25 +6,21 @@ import NftCard from "../UI/NftCard";
 const ExploreItems = () => {
   const [responseList, setresponseList] = useState([]);
   const [renderlimit, setrenderlimit] = useState(8);
+  const exploreApiLink = process.env.REACT_APP_FES_API;
 
   useEffect(() => {
-    fetchApiData(
-      "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
-    );
+    fetchApiData(`${exploreApiLink}/explore`);
   }, []);
 
   async function fetchApiData(api) {
     let response = await axios.get(api);
     let responseData = await response.data;
     setresponseList(responseData);
-    console.log(responseData);
   }
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setresponseList((prev) => {
-        return prev.map((item) => item);
-      });
+      setresponseList((prev) => [...prev]);
     }, 1000);
 
     return () => clearInterval(intervalId);
