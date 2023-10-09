@@ -16,7 +16,6 @@ const TopSellers = () => {
     let response = await axios.get(api);
     let responseData = await response.data;
     setresponseList(responseData);
-    console.log(responseData);
   }
 
 

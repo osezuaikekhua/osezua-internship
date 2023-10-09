@@ -28,12 +28,8 @@ const ExploreItems = () => {
 
   function handleValueChange(event) {
     const FilterValue = event.target.value;
-    fetchApiData(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${FilterValue}`
-    );
-    console.log(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${FilterValue}`
-    );
+    fetchApiData(`${exploreApiLink}/explore?filter=${FilterValue}`);
+    setrenderlimit(8);
   }
 
 
