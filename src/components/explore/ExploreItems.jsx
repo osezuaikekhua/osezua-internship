@@ -45,7 +45,8 @@ const ExploreItems = () => {
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {responseList.slice(0, renderlimit).map((item, index) => (
+      {responseList.length
+            ? responseList.slice(0, renderlimit).map((item, index) => (
         <NftCard
           key={index}
           authorId={item.authorId}
@@ -60,6 +61,10 @@ const ExploreItems = () => {
           isSlide={true}
           style={{ display: "block", backgroundSize: "cover" }}
         />
+      )): new Array(8)
+      .fill(0)
+      .map((_, index) => (
+        <NftCard key={index} isLoaded={false} isSlide={true} />
       ))}
         {renderlimit < responseList.length ? (
         <div className="col-md-12 text-center">
