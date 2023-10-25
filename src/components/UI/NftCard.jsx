@@ -43,7 +43,7 @@ function NftCard({
       }`}
       style={style}
     >
-      <div className="nft__item">
+      <div className="nft__item" >
         <div className="author_list_pp">
           {isLoaded ? (
             <Link
@@ -52,7 +52,7 @@ function NftCard({
               data-bs-placement="top"
               title="Creator: Monica Lucas"
             >
-              <img className="lazy" src={authorImage} alt="" />
+              <img className="lazy" src={authorImage} alt="" data-aos="fade-zoom-in" data-aos-easing="ease" data-aos-delay="100" data-aos-offset="0" data-aos-duration="2000"/>
               <i className="fa fa-check"></i>
             </Link>
           ) : (
@@ -96,7 +96,7 @@ function NftCard({
           </div>
           {isLoaded ? (
             <Link to={`/item-details/${nftId}`}>
-              <img src={nftImage} className="lazy nft__item_preview" alt="" />
+              <img src={nftImage} className="lazy nft__item_preview" alt="" data-aos="fade-zoom-in" data-aos-easing="ease" data-aos-delay="100" data-aos-offset="0" data-aos-duration="2000"/>
             </Link>
           ) : (
             <Link to="">
@@ -104,7 +104,7 @@ function NftCard({
             </Link>
           )}
         </div>
-        <div className="nft__item_info">
+        <div className="nft__item_info" data-aos="fade-zoom-in" data-aos-easing="ease" data-aos-delay="100" data-aos-offset="0" data-aos-duration="2000">
           {isLoaded ? (
             <Link to={`/item-details/${nftId}`}>
               <h4>{title}</h4>

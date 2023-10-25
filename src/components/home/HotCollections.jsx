@@ -59,7 +59,7 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="navigation-wrapper">
+          <div className="navigation-wrapper" >
             <div ref={sliderRef} className="keen-slider">
               {responseList
                 ? responseList.map((item, index) => (
@@ -67,13 +67,14 @@ const HotCollections = () => {
                       className="col-lg-3 col-md-6 col-sm-6 col-xs-12 keen-slider__slide"
                       key={index}
                     >
-                      <div className="nft_coll">
+                      <div className="nft_coll" >
                         <div className="nft_wrap">
                           <Link to={`/item-details/${item.nftId}`}>
                             <img
                               src={item.nftImage}
                               className="lazy img-fluid"
                               alt=""
+                              data-aos="fade-zoom-in" data-aos-easing="ease" data-aos-delay="100" data-aos-offset="0" data-aos-duration="2000"
                             />
                           </Link>
                         </div>
@@ -83,15 +84,16 @@ const HotCollections = () => {
                               className="lazy pp-coll"
                               src={item.authorImage}
                               alt=""
+                              data-aos="fade-zoom-in" data-aos-easing="ease" data-aos-delay="100" data-aos-offset="0" data-aos-duration="2000"
                             />
                           </Link>
                           <i className="fa fa-check"></i>
                         </div>
                         <div className="nft_coll_info">
                           <Link to={`/explore`}>
-                            <h4>{item.title}</h4>
+                            <h4 data-aos="fade-zoom-in" data-aos-easing="ease" data-aos-delay="100" data-aos-offset="0" data-aos-duration="2000">{item.title}</h4>
                           </Link>
-                          <span>{`ERC-${item.code}`}</span>
+                          <span data-aos="fade-zoom-in" data-aos-easing="ease" data-aos-delay="100" data-aos-offset="0" data-aos-duration="2000">{`ERC-${item.code}`}</span>
                         </div>
                       </div>
                     </div>
