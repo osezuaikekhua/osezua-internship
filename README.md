@@ -1,4 +1,4 @@
-# Welcome to Ultraverse: NFT world App!
+# Welcome to Ultraverse: NFT World App!
 
 This application is a nft betting website. Although the Html & Css were forked from my internship, I was tasked to add ALL
 the functionality. View NFTs up for bid! All the NFTs were fetched from an API then dynamically intergrated on the website. Heart your
